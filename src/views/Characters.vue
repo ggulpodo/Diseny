@@ -1,8 +1,24 @@
 <template>
-  <div>
-    <!-- <div v-for="personnage in personnages" :key="personnage">{{ personnage[0] }}</div> -->
-    {{datas.data[0]["name"]}}
+  <!-- <div v-for="(item, index) in personnages" :key="index">
+    <div :style="`background: url(${personnages[index].imageUrl}) no-repeat center /contain; height:200px`"></div>
+    <p>{{ personnages[index].name }}</p>
+  </div> -->
+
+<!-- <button type="button" class="btn btn-primary">Primary</button> -->
+
+
+<div class="row row-cols-1 row-cols-md-3">
+  <div class="col mb-4" v-for="(item, index) in personnages" :key="index">
+    <div class="card h-100">
+      <div class="card-img-top" :style="`background: url(${personnages[index].imageUrl}) no-repeat center /contain; height:200px`"/>
+      <div class="card-body">
+        <h5 class="card-title">{{ personnages[index].name }}</h5>
+        <p class="card-text">{{ personnages[index].tvShows }}</p>
+      </div>
+    </div>
   </div>
+</div>
+
 
 </template>
 
@@ -12,41 +28,34 @@
   export default {
     data() {
       return {
-        datas:[]
-      }
-    },
-    methods: {
-      async fetchData(){
-        const res = await axios.get('https://api.disneyapi.dev/characters')
-        this.datas = res.data
+        personnages: []
       }
     },
     created() {
-      this.fetchData()
+      var vm = this;
+      axios.get('https://api.disneyapi.dev/characters')
+        .then(
+          function (response) {
+            vm.personnages = response.data.data;
+          }
+        )
+        .catch(function (error) {
+          console.log(error);
+        });
     },
-    // created() {
-    //   var vm = this;
-    //   axios.get('https://api.disneyapi.dev/characters')
-    //     .then(
-    //        function(response){
-    //        vm.personnages = response.data;
-    //        console.log(response.data);
-    //        console.log(response.data.data[0].name);
-    //       console.log(response.data.data[0])
-    //        console.log(response.data.data[0]["name"])
-    //      }
-    //     )
-    //     .catch(function(error){
-    //       console.log(error);
-    //     });
-    // },
     name: 'character',
   }
 </script>
 
 <style>
-  .character>h5 {
-    color: #fff;
-    font-size: 50px;
-  }
+*{
+  color: #fff;
+  margin: 0 auto;
+}
+.card {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+.row {
+  margin: 0 70px !important;
+}
 </style>

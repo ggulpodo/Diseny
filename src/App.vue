@@ -5,6 +5,7 @@
 
   <router-view></router-view>
 
+
 </template>
 
 <script>
@@ -26,12 +27,12 @@
   }
 
   body {
-    background-color: #461d66;
+    /* background-color: #461d66; */
     background: linear-gradient(to top, #29224e, #2e459f);
-    height: 100vh;
 
     text-align: center;
     color: #fff;
+    /* margin-top: 60px; */
   }
 
   .visual {
