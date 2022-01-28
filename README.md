@@ -1,24 +1,11 @@
-# diseny
+# gguldiseny
 
-## Project setup
+## Hosting URL
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+https://gguldiseny.netlify.app
 ```
 
-### Compiles and minifies for production
+## Public API
 ```
-npm run build
+https://api.disneyapi.dev/characters
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

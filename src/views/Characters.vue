@@ -52,10 +52,16 @@
   color: #fff;
   margin: 0 auto;
 }
+
+.row {
+    margin: 0 70px !important;
+    transform: translateY(-8%) !important;
+  }
+
 .card {
   background-color: rgba(0, 0, 0, 0) !important;
 }
-.row {
-  margin: 0 70px !important;
+.card-body {
+  text-align: center;
 }
 </style>
