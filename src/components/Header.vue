@@ -1,11 +1,17 @@
 <template>
   <div class="header">
-      <span class="logo"></span>
+      <span @click="hometag" class="logo">
+      </span>
   </div>
 </template>
 
 <script>
 export default {
+    methods: {
+        hometag(){
+            
+        }
+    },
 
 }
 </script>
